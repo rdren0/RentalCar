@@ -3,29 +3,27 @@
 #include <string>
 using namespace std;
 
+void RentalWelcome(void);
+float GetDayInfo(int , int);
+float GetMileInfo(int, float);
+
+
 int main(void)
 {
+
 	int strCar;
-	int intMiles;
-	int intDays;
-	int intFree;
 	float intCost;
 	float intDayCost;
 	float intTotal;
 	int charEndDay;
 	float fltTotalDay = 0.0;
-	char charCode = 0.0;
+	int intDays, intMiles;
 	
-	cout << "             ___________" << endl;
-	cout << "         ___//__][__][__\\  " << endl;
-	cout << "        (o  _|  -|  |  _ |  " << endl;
-	cout << "         `-(_)--------(_)' " << endl;
-	cout << " " << endl;
-	cout << "Welcome to Blah Blah Rental Car" << endl;
-	cout << "-------------------------------" << endl;
-	cout << "Please Enter Customer Member Number: " << endl;
+		RentalWelcome();
 	
+	cout << "Please Enter Employee Number: " << endl;
 	cin >> charEndDay;
+	cout << "" << endl;
 	while (charEndDay != 98765)
 	{
 		cout << "" << endl;
@@ -55,9 +53,8 @@ int main(void)
 		if (strCar == 1) {
 			cout << "" << endl;
 			cout << "Sports Car selected \n" << endl;
-			intDayCost = intDays * 50;
-			intFree = intDays * 100;
-			intCost = (intMiles - intFree) * 1.0;
+			intDayCost = GetDayInfo(intDays, 50);
+			intCost = GetMileInfo(intMiles, 1.0);
 			intTotal = intCost + intDayCost + charCode;
 			cout << "$" << intTotal << endl;
 			fltTotalDay = fltTotalDay + intTotal;
@@ -65,9 +62,8 @@ int main(void)
 		else if (strCar == 2) {
 			cout << "" << endl;
 			cout << "Mid-size selected \n" << endl;
-			intDayCost = intDays * 35;
-			intFree = intDays * 100;
-			intCost = (intMiles - intFree) * 0.75;
+			intDayCost = GetDayInfo(intDays, 35);
+			intCost = GetMileInfo(intMiles, 0.75);
 			intTotal = intCost + intDayCost + charCode;
 			cout << "$" << intTotal << endl;
 			fltTotalDay = fltTotalDay + intTotal;
@@ -75,8 +71,8 @@ int main(void)
 		else {
 			cout << "" << endl;
 			cout << "Economy Selected \n" << endl;
-			intDayCost = intDays * 25;
-			intFree = intDays * 100;
+			intDayCost = GetDayInfo(intDays, 25);
+			intCost = GetMileInfo(intMiles, 0.35);
 			intCost = (intMiles - intFree) * 0.35;
 			intTotal = intCost + intDayCost + charCode;
 			cout << "$" << intTotal << endl;
@@ -94,3 +90,26 @@ int main(void)
 	system("pause");
 	return 0;
 }
+
+
+void RentalWelcome(void)
+{
+	cout << "             ___________" << endl;
+	cout << "         ___//__][__][__\\  " << endl;
+	cout << "        (o  _|  -|  |  _ |  " << endl;
+	cout << "         `-(_)--------(_)' " << endl;
+	cout << " " << endl;
+	cout << "Welcome to Blah Blah Rental Car" << endl;
+	cout << "-------------------------------" << endl;
+	return;
+}
+
+float GetDayInfo(int iDay, int carDRate){
+	return iDay * carDRate;
+
+}
+
+float GetMileInfo(int iMile, float carMRate) {
+	return iMile * carMRate;
+}
+
