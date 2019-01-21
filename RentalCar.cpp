@@ -16,6 +16,8 @@ int main(void)
 	float intDayCost;
 	float intTotal;
 	int charEndDay;
+	int charCode;
+	int intFree;
 	float fltTotalDay = 0.0;
 	int intDays, intMiles;
 	
